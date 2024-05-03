@@ -7,6 +7,7 @@ import FormField from '../../components/FormField'
 import CustomButton from '../../components/CustomButton'
 import { Link, router } from 'expo-router'
 import { createUser } from '../../lib/appwrite'
+import { Alert } from 'react-native' 
 
 const SignUp = () => {
   const[form, setForm] = useState({
@@ -17,15 +18,15 @@ const SignUp = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-const submit = async ()=>{
+const submit = async () => {
 
   if(!form.username || !form.email || !form.password){
     Alert.alert('Error', 'Please fill in all the field!')
   }
   
-  isSubmitting(true);
+ setIsSubmitting(true);
    
-
+ 
   try {
     const result = await createUser(form.email, form.password, form.username)
 
@@ -44,9 +45,10 @@ const submit = async ()=>{
      <ScrollView>
       <View className="w-full justify-center min-h-[85vh] px-4 my-6">
       <Image 
-      source={images.logo}
+      source={images.amicLogo}
       resizeMode='contain'
-      className="w-[115px] h-[35px]"
+      className="w-[110px] h-[70px]"
+      // className="w-[115px] h-[35px]"
       />
 
       <Text className='text-2xl text-white text-semibold mt-10 font-psemibold'>Create an Account</Text>

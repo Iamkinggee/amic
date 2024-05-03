@@ -24,12 +24,13 @@ const submit=()=>{
      <ScrollView>
       <View className="w-full justify-center min-h-[85vh] px-4 my-6">
       <Image 
-      source={images.logo}
+      source={images.amicLogo}
       resizeMode='contain'
-      className="w-[115px] h-[35px]"
+       className="w-[110px] h-[70px]"
+      // className="w-[115px] h-[35px]"
       />
 
-      <Text className='text-2xl text-white text-semibold mt-10 font-psemibold'>Log in to Amic</Text>
+      <Text className='text-2xl text-white text-semibold mt-10 font-psemibold'>Log in to amic</Text>
 
       <FormField 
       title="Email"

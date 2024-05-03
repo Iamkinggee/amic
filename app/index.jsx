@@ -17,8 +17,9 @@ export default function App( ) {
      <ScrollView contentContainerStyle={{height: '100%'}}>
       <View className="w-full justify-center items-center min-h-[85vh] px-4">
        <Image     
-       source={images.logo}
+       source={images.amicLogo}
        className="w-[130px] h-[84px]"
+      //  className="w-[200px] h-[300px]"
        resizeMode="contain"
        />
 
@@ -33,7 +34,7 @@ export default function App( ) {
  
 
           <Text className="text-secondary-200">
-             Amic
+             amic
           </Text>
         </Text>
 
@@ -43,7 +44,7 @@ export default function App( ) {
         resizeMode='contain'
         />
        </View>
-       <Text className='text-sm text-gray-100 mt-7 text-center'>Where creativity meets inivation: embark on ajourney of limitless exploration with Amic.</Text>
+       <Text className='text-sm text-gray-100 mt-7 text-center'>Where creativity meets inivation: embark on a journey of limitless exploration with amic.</Text>
 
 
        <CustomButton
