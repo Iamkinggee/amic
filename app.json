@@ -24,7 +24,7 @@
         "backgroundColor": "#ffffff"
        
       },
-      "package": "com.gee.amic"
+      "package": "com.gee.amicapp"
     },
     "web": {
       "bundler": "metro",

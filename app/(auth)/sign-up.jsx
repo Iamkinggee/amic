@@ -1,44 +1,54 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image,ScrollView, Dimensions,} from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { ScrollView } from 'react-native'
 import { images }  from '../../constants'
 import FormField from '../../components/FormField'
 import CustomButton from '../../components/CustomButton'
 import { Link, router } from 'expo-router'
 import { createUser } from '../../lib/appwrite'
-import { Alert } from 'react-native' 
+import { Alert } from 'react-native'
+import home from '../(Tabs)/home' 
+import { useNavigation } from "@react-navigation/native";
+
+// import { useGlobalContext } from "../../context/GlobalProvider";
+
+
 
 const SignUp = () => {
-  const[form, setForm] = useState({
-    username: '',
-    email: '',
-    password: ''
-  });
-
+  // const { setUser, setIsLogged } = useGlobalContext();
+  const navigation = useNavigation();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const[form, setForm] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+ 
+
 
 const submit = async () => {
-
-  if(!form.username || !form.email || !form.password){
-    Alert.alert('Error', 'Please fill in all the field!')
+  if(!form.username || !form.email || !form.password ){
+    Alert.alert("Error", "Please fill in all the field!")
   }
   
  setIsSubmitting(true);
-   
- 
   try {
-    const result = await createUser(form.email, form.password, form.username)
+    const result = await createUser(form.email, form.password, form.username);
+    // setUser(result);
+    // setIsLogged(true);
 
     //set to global state using context
 
-    router.replace('/home')
+    // router.replace("/home")
+    navigation.replace("Home");
   } catch (error) {
-    Alert.alert('Error', error.message)
+    Alert.alert("Error", error.message)
   } finally {
     setIsSubmitting(false)
   }
-}
+};
+
 
   return (
     <SafeAreaView className="bg-primary h-full" >
@@ -58,7 +68,6 @@ const submit = async () => {
       value={form.username}
       handleChangeText={(e) => setForm({...form, username: e})}
       otherStyles="mt-10"
-    
       />
 
 
